@@ -4,5 +4,5 @@ use mathonomy::consts::*;
 
 #[test]
 fn relativistic_energy() {
-    assert_eq!(skinetic_energy(SPEED_OF_LIGHT, 1), INFINITY)
+    assert_eq!(skinetic_energy(SPEED_OF_LIGHT, 1f64), INFINITY)
 }

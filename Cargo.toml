@@ -1,7 +1,14 @@
 [package]
 name = "mathonomy"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
+description = "A flexible mathematics & physics library that is as simple - or complex - as you want it to be."
+readme = "README.md"
+license = "0BSD"
+repository = "https://github.com/visionizer/mathonomy"
+keywords = ["maths", "mathematics", "physics", "science", "rust science"]
+
+categories = ["mathematics", "science"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
