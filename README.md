@@ -1,9 +1,21 @@
 # Mathonomy - Mathematics for Rust
-Mathonomy is a physics & mathematics library for the Rust programming language.
+Mathonomy is a #![no_std] capable physics & mathematics library for the Rust programming language.
+
+
+## Data Types
+The data type used for all calculations is the `f64`. I assume that each person using this crate 
+is using a 64-bit capable CPU.
+
+## Learning Physics
+
+Each file has a detailed comment at the top which explains what the equation does, what the result is,
+how it is used and more. Therefore, if you are interested in learning, you can read through the headers of each
+file. Each equation-collection has its own file, for example, Lorentz-Factor-Calculations are in the file [src/relativity/lorentz.rs](src/relativity/lorentz.rs)
+
 
 ## Naming
 
-Most formulas are implement at least twice. Once, complex and once simple. Simple  formulas provide
+Most equations are implement at least twice. Once, complex and once simple. Simple  equations provide
 some abstraction over the raw, complex alternatives. Often, there are multiple simple functions
 providing different levels of abstraction. Let's take, as an example, the calculation of the lorentz
 factor.
@@ -48,8 +60,8 @@ Comments are *always* structured the same way. This is to help the coder know wh
 <Short description of what the function does>
 
 (Optional)
-## Comparison to another similar formula
-<When should you use which one? Example: Newtonian vs Relative kinetic energy formula>
+## Comparison to another similar equation
+<When should you use which one? Example: Newtonian vs Relative kinetic energy equation>
 
 ## Variables
 <A list of the variables that are passed into the function. Those functions **always** follow the same scheme>
@@ -57,6 +69,11 @@ Comments are *always* structured the same way. This is to help the coder know wh
 [Examples (From relativistic kinetic energy)]
 - speed (v :: m/s)
 - mass (m :: kg) = The mass of the body
+
+## Example
+```rs
+let example = "An example of the function in use";
+\```
 
 ## Related Functions
 <Functions that are related, such as, the complex alternative, other simple alternatives>
@@ -70,17 +87,28 @@ Comments are *always* structured the same way. This is to help the coder know wh
 ```
 
 #### Example
-```md
-# Simple Kinetic Energy
-Calculates the relativistic kinetic energy
-
-## Relativistic vs Newtonian
-Use this formula if v is bigger than 1% of c
-## Variables
-- speed (v :: m/s)
-- mass (m :: kg) = The mass of the body
-## Related Functions
-kinetic_energy => The same, but you have to calculate the lorentz factor yourself
-## Read more
-https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies
+```rs
+/// # Simple Kinetic Energy
+/// Calculates the relativistic kinetic energy
+///
+/// ## Relativistic vs Newtonian
+/// Use this equation if v is bigger than 1% of c
+///
+/// ## Variables
+/// ### Parameters
+/// - speed (v :: m/s)
+/// - mass (m :: kg) = The mass of the body
+/// ## Returns
+/// - Kinetic Energy (KE :: J)
+///
+/// ## Examples
+/// ```rs
+/// let joules = ckinetic_energy(SPEED_OF_LIGHT, 1, slorentz(SPEED_OF_LIGHT))
+/// ```
+///
+/// ## Related Functions
+/// `skinetic_energy` => The simple version, lorentz factor is emitted
+///
+/// ## Read more
+/// <https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies>
 ```

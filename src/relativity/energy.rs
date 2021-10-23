@@ -1,40 +1,57 @@
-use crate::consts::SPEED_OF_LIGHT;
+use crate::consts::SPEED_OF_LIGHT_SQUARED;
 
 use super::lorentz::slorentz;
-
+use crate::prelude::*;
 /// # Simple Kinetic Energy
 /// Calculates the relativistic kinetic energy
+///
 /// ## Relativistic vs Newtonian
-/// Use this formula if v is bigger than 1% of c
+/// Use this equation if `v` is bigger than 1% of `c`
 ///
 /// ## Variables
-/// - speed (v)
-/// - mass (m) = The mass of the body
+/// ### Parameters
+/// - speed (v :: m/s)
+/// - mass (m :: kg) = The mass of the body
+/// ### Returns
+/// - Kinetic Energy (KE :: J)
+///
+/// ## Example
+/// ```rs
+/// let joules = skinetic_energy(SPEED_OF_LIGHT, 1)
+/// ```
 ///
 /// ## Related Functions
-/// kinetic_energy => The same, but you have to calculate the lorentz factor yourself
+/// `ckinetic_energy` => Complex Version, passing in a custom lorentz factor is required
 ///
 /// ## Read more
-/// https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies
+/// <https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies>
 pub fn skinetic_energy(speed: f64, mass: f64) -> f64 {
-    kinetic_energy(speed, mass, slorentz(speed))
+    ckinetic_energy(speed, mass, slorentz(speed))
 }
 
 /// # Simple Kinetic Energy
 /// Calculates the relativistic kinetic energy
 ///
 /// ## Relativistic vs Newtonian
-/// Use this formula if v is bigger than 1% of c
+/// Use this equation if v is bigger than 1% of c
 ///
 /// ## Variables
+/// ### Parameters
 /// - speed (v :: m/s)
 /// - mass (m :: kg) = The mass of the body
+/// ## Returns
+/// - Kinetic Energy (KE :: J)
+///
+/// ## Examples
+/// ```rs
+/// let joules = ckinetic_energy(SPEED_OF_LIGHT, 1, slorentz(SPEED_OF_LIGHT))
+/// ```
 ///
 /// ## Related Functions
-/// kinetic_energy => The same, but you have to calculate the lorentz factor yourself
+/// `skinetic_energy` => The simple version, lorentz factor is emitted
 ///
 /// ## Read more
-/// https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies
-pub fn kinetic_energy(speed: f64, mass: f64, lorentz: f64) -> f64 {
-    (lorentz - 1f64) * mass * SPEED_OF_LIGHT.powi(2)
+/// <https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies>
+pub fn ckinetic_energy(speed: f64, mass: f64, lorentz: f64) -> f64 {
+    (lorentz - 1f64) * mass * speed.powi(2)
 }

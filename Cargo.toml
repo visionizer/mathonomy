@@ -6,11 +6,16 @@ description = "A flexible mathematics & physics library that is as simple - or c
 readme = "README.md"
 license = "0BSD"
 repository = "https://github.com/visionizer/mathonomy"
-keywords = ["maths", "mathematics", "physics", "science", "rust science"]
+keywords = ["maths", "mathematics", "physics", "science", "no_std"]
 
-categories = ["mathematics", "science"]
+categories = ["mathematics", "science", "no_std"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[dev-dependencies]
+criterion = "0.3"
 
-[dependencies]
+
+[[bench]]
+name = "relativity"
+harness = false
