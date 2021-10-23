@@ -22,7 +22,7 @@ pub fn skinetic_energy(speed: f64, mass: f64) -> f64 {
 
 /// # Simple Kinetic Energy
 /// Calculates the relativistic kinetic energy
-/// 
+///
 /// ## Relativistic vs Newtonian
 /// Use this formula if v is bigger than 1% of c
 ///

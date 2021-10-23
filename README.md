@@ -10,10 +10,10 @@ factor.
 
 The following functions are available for said calculation:
 
-- slorentz
-- slorentzt
-- slorentztr
-- clorentz
+- `slorentz`
+- `slorentzt`
+- `slorentztr`
+- `clorentz`
 
 Now, let's take a look at those functions
 
@@ -28,12 +28,13 @@ All units used are SI-Units. We also use the official symbols only.
 **All units are also stated in a comment above the function**
 Additionally f64's can always be converted into other units.
 
-## Kilo, Mega and more.
+### Kilo, Mega and more.
 All units can be converted into their kilo, mega, ... counterparts by simply calling `.kilo()` or similar methods.
-Example:
+
+#### Example
 
 ```rs
-let big_joule = mathonomy::relativstic::skinetic_energy(mathonomy::consts::SPEED_OF_LIGHT - 1, 1);
+let big_joule = mathonomy::relativity::skinetic_energy(mathonomy::consts::SPEED_OF_LIGHT - 1, 1);
 let giga_joule = big_joule.giga()
 ```
 
@@ -66,4 +67,20 @@ Comments are *always* structured the same way. This is to help the coder know wh
 (Optional)
 ## Safety
 <A note about the safety of the function>
+```
+
+#### Example
+```md
+# Simple Kinetic Energy
+Calculates the relativistic kinetic energy
+
+## Relativistic vs Newtonian
+Use this formula if v is bigger than 1% of c
+## Variables
+- speed (v :: m/s)
+- mass (m :: kg) = The mass of the body
+## Related Functions
+kinetic_energy => The same, but you have to calculate the lorentz factor yourself
+## Read more
+https://en.wikipedia.org/wiki/Kinetic_energy#Relativistic_kinetic_energy_of_rigid_bodies
 ```
